@@ -14,7 +14,7 @@ function App() {
   const handleGuardarDatos = async (datos) => {
     const copiaMatriz = copiarDatosMatriz(datos);
 
-    setDatosMatriz(copiaMatriz);
+    await setDatosMatriz(copiaMatriz);
 
     if (datos.length !== '') {
       try {
@@ -50,15 +50,15 @@ function App() {
         throw new Error('Error al enviar datos a la API');
       }
       const datosRespuesta = await response.json();
-      console.log('Datos de la API:', datosRespuesta);
+      // console.log('Datos de la API:', datosRespuesta);
       setDatosApi(datosRespuesta);
-
+      
     } catch (error) {
       console.error('Error en la llamada a la API:', error);
-
+      
     }
   };
-
+  
   const copiarDatosMatriz = (datos) => {
     const copiaMatriz = [...datos];
     setCopiarMatriz(copiaMatriz);
@@ -97,7 +97,7 @@ function App() {
             Administra los {''}
             <span className="text-indigo-700 font-bold">Datos y Resultados</span>
           </p>
-          {datosApi && (<ListadoMatriz matrizCopia={copiarMatriz} {...datosApi} />)}
+          {datosApi && (<ListadoMatriz matrizCopia={copiarMatriz} apiRespuesta={datosApi} />)}
         </div>
       </div>
     </div>
