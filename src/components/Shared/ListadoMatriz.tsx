@@ -1,9 +1,12 @@
 const ListadoMatriz = ({ matrizCopia, apiRespuesta }) => {
     console.log(apiRespuesta)
+    console.log(typeof (matrizCopia))
+
     const mostrarMatriz = (matriz) => {
-        if (!Array.isArray(matriz) || matriz.length === 0 || !Array.isArray(matriz[0])) {
-            return <p>No se pudo mostrar la matriz.</p>;
+        if (!matriz || !Array.isArray(matriz) || matriz.length === 0 || !Array.isArray(matriz[0])) {
+            return;
         }
+
         return matriz.map((fila, indiceFila) => (
             <div key={indiceFila} className="flex">
                 {fila.map((elemento, indiceElemento) => (
@@ -14,11 +17,28 @@ const ListadoMatriz = ({ matrizCopia, apiRespuesta }) => {
             </div>
         ));
     };
+
+    const mostrarMatrizCopia = (matrizCopia) => {
+        if (!matrizCopia || typeof matrizCopia !== 'object') {
+            return;
+        }
+
+        return (
+            <div className="flex">
+                {Object.keys(matrizCopia).map((propiedad, indice) => (
+                    <div key={indice} className="mx-4">
+                        {propiedad}
+                        {mostrarMatriz(matrizCopia[propiedad])}
+                    </div>
+                ))}
+            </div>
+        );
+    };
     return (
         <>
             <div className="mx-5 my-7 bg-white shadow-md px-5 py-10 rounded-xl">
                 <p className="font-bold mb-3 text-gray-700 uppercase">Matriz: {''}
-                    <span className="font-normal normal-case">{mostrarMatriz(apiRespuesta.matriz.flat())}</span>
+                    <span className="font-normal normal-case">{mostrarMatrizCopia(matrizCopia)}</span>
                 </p>
                 <p className="font-bold mb-3 text-gray-700 uppercase">Iteracion 1: {''}
                     <span className="font-normal normal-case">{mostrarMatriz(apiRespuesta.iteracion_1)}</span>
@@ -31,9 +51,6 @@ const ListadoMatriz = ({ matrizCopia, apiRespuesta }) => {
                 </p>
                 <p className="font-bold mb-3 text-gray-700 uppercase">Resultado Final: {''}
                     <span className="font-normal normal-case">{mostrarMatriz(apiRespuesta.resultado_final)}</span>
-                </p>
-                <p className="font-bold mb-3 text-gray-700 uppercase">Matriz: {''}
-                    <span className="font-normal normal-case">{mostrarMatriz(matrizCopia)}</span>
                 </p>
             </div>
         </>
