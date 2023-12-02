@@ -39,7 +39,8 @@ const FormularioPrincipal = ({ filas, columnas, onGuardarDatos }) => {
                             {fila.map((valor, indexColumna) => (
                                 <td key={`celda-${indexFila}-${indexColumna}`}>
                                     <input
-                                        type="text"
+                                        type="number"
+                                        min={0}
                                         value={valor}
                                         onChange={(e) => handleInputChange(indexFila, indexColumna, e.target.value)}
                                         className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
@@ -57,6 +58,7 @@ const FormularioPrincipal = ({ filas, columnas, onGuardarDatos }) => {
         e.preventDefault();
         if (matriz.every((fila) => fila.every((valor) => valor.trim() === ''))) {
             setError(true)
+            
             return
         }
         setError(false)

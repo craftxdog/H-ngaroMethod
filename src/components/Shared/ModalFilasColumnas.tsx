@@ -13,22 +13,27 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useState } from "react"
 import Error from "../Shared/Error"
+import Loader from "./Loader"
 
 export function ModalFilasColumnas({ onEnviarDatos }) {
     const [filas, setFilas] = useState(0)
     const [columnas, setColumnas] = useState(0)
     const [error, setError] = useState(false)
+    const [activar, setActivar] = useState(true)
 
     const handleSubmit = () => {
         if (Number.isInteger(filas) && filas > 0 && Number.isInteger(columnas) && columnas > 0) {
-            setError(false)
+            setActivar(true)
             onEnviarDatos({ filas, columnas })
         } else {
             setError(true)
+            setActivar(false)
             return
         }
         setFilas(0)
         setColumnas(0)
+        console.log(error)
+        console.log(activar)
     }
     return (
         <Dialog>
@@ -79,13 +84,21 @@ export function ModalFilasColumnas({ onEnviarDatos }) {
                         <DialogClose asChild>
                             <Button type="submit" className="bg-indigo-600 w-full p-3 text-white uppercase font-bold rounded-md hover:bg-indigo-500 cursor-pointer
                             transition-opacity" onClick={handleSubmit}>
-                                Enviar Datos
+                                {error ? (
+                                    <div className="flex gap-3">
+                                        <Loader /> Comprobando...
+                                    </div>
+                                ) : ('Enviar Datos')}
                             </Button>
                         </DialogClose>
                     ) : (
                         <Button type="submit" className="bg-indigo-600 w-full p-3 text-white uppercase font-bold rounded-md hover:bg-indigo-500 cursor-pointer
                             transition-opacity" onClick={handleSubmit}>
-                            Enviar Datos
+                            {error ? (
+                                <div className="flex gap-3">
+                                    <Loader /> Comprobando...
+                                </div>
+                            ) : ('Enviar Datos')}
                         </Button>
                     )}
                 </DialogFooter>
