@@ -43,7 +43,7 @@ const ListadoMatriz = ({ matrizCopia, apiRespuesta }) => {
                     {mostrarMatriz(apiRespuesta.matriz_resultante)?.length ? (
                         <div className="mx-4">
                             <p className="font-bold mb-3 text-gray-700 uppercase">Matriz Resultante: {''}
-                                <span className="font-normal normal-case mx-2">{mostrarMatriz(apiRespuesta.matriz_tachada)}</span>
+                                <span className="font-normal normal-case mx-2">{mostrarMatriz(apiRespuesta.matriz_resultante)}</span>
                             </p>
                         </div>
 
