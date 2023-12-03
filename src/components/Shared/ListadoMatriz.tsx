@@ -38,7 +38,7 @@ const ListadoMatriz = ({ matrizCopia, apiRespuesta }) => {
         <>
             <div className="mx-5 my-7 bg-white shadow-md px-5 py-10 rounded-xl">
                 <p className="font-bold mb-3 text-gray-700 uppercase">Matriz: {''}
-                    <span className="font-normal normal-case mx-2">{mostrarMatriz(matrizCopia)}</span>
+                    <span className="font-normal normal-case mx-2">{mostrarMatriz(apiRespuesta.matriz)}</span>
                 </p>
                 <div className="flex justify-between">
                     <div className="mx-4">
