@@ -18,22 +18,6 @@ const ListadoMatriz = ({ matrizCopia, apiRespuesta }) => {
         ));
     };
 
-    const mostrarMatrizCopia = (matrizCopia) => {
-        if (!matrizCopia || typeof matrizCopia !== 'object') {
-            return;
-        }
-
-        return (
-            <div className="flex">
-                {Object.keys(matrizCopia).map((propiedad, indice) => (
-                    <div key={indice} className="mx-4">
-                        {propiedad}
-                        {mostrarMatriz(matrizCopia[propiedad])}
-                    </div>
-                ))}
-            </div>
-        );
-    };
     return (
         <>
             <div className="mx-5 my-7 bg-white shadow-md px-5 py-10 rounded-xl">
@@ -56,6 +40,20 @@ const ListadoMatriz = ({ matrizCopia, apiRespuesta }) => {
                             <span className="font-normal normal-case mx-2">{mostrarMatriz(apiRespuesta.matriz_tachada)}</span>
                         </p>
                     </div>
+                    {mostrarMatriz(apiRespuesta.matriz_resultante)?.length ? (
+                        <div className="mx-4">
+                            <p className="font-bold mb-3 text-gray-700 uppercase">Matriz Resultante: {''}
+                                <span className="font-normal normal-case mx-2">{mostrarMatriz(apiRespuesta.matriz_tachada)}</span>
+                            </p>
+                        </div>
+
+                    ): (
+                        <>
+
+                        </>
+                    )
+                    
+                    }
                     <div className="mx-4">
                         <p className="font-bold mb-3 text-gray-700 uppercase">Resultado Final: {''}
                             <span className="font-normal normal-case mx-2">{mostrarMatriz(apiRespuesta.resultado_final)}</span>
