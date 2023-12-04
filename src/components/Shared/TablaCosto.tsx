@@ -1,4 +1,4 @@
-const ListadoMatriz = ({ matrizCopia, apiRespuesta }) => {
+const TablaCosto = ({ apiRespuesta }) => {
     const mostrarMatriz = (matriz) => {
         if (!matriz || !Array.isArray(matriz) || matriz.length === 0 || !Array.isArray(matriz[0])) {
             return;
@@ -8,7 +8,7 @@ const ListadoMatriz = ({ matrizCopia, apiRespuesta }) => {
                 <table className="border-collapse table-fixed w-full text-center bg-gray-50">
                     <thead>
                         <tr>
-                            <th className="border-b border-gray-300 px-4 py-2">F/C</th>
+                            <th className="border-b border-gray-300 px-4 py-2">F</th>
                             {matriz[0].map((elemento, indiceElemento) => (
                                 <th key={indiceElemento} className="border border-gray-300 px-4 py-2">
                                     C{indiceElemento + 1}
@@ -36,40 +36,18 @@ const ListadoMatriz = ({ matrizCopia, apiRespuesta }) => {
     };
     return (
         <>
-            <div className="mx-5 my-7 bg-white shadow-md px-5 py-10 rounded-xl">
-                <div>
-                    <p className="font-bold mb-3 text-gray-700 uppercase">Matriz Principal:</p>
-                    {mostrarMatriz(apiRespuesta.matriz)}
+            <div>
+                    <p className="font-bold mb-3 text-gray-700 uppercase">Costo Total Mínimo:</p>
+                    {apiRespuesta.costo}
                 </div>
                 <div className="mt-5">
-                    <p className="font-bold mb-3 text-gray-700 uppercase">Iteracion 1:</p>
+                    <p className="font-bold mb-3 text-gray-700 uppercase">Resultado Final</p>
                     <span className="font-normal normal-case">
-                        {mostrarMatriz(apiRespuesta.iteracion_1)}
+                        {mostrarMatriz(apiRespuesta.resultado_final)}
                     </span>
                 </div>
-                <div className="mt-5">
-                    <p className="font-bold mb-3 text-gray-700 uppercase">Iteracion 2:</p>
-                    <span className="font-normal normal-case">
-                        {mostrarMatriz(apiRespuesta.iteracion_2)}
-                    </span>
-                </div>
-                <div className="mt-5">
-                    <p className="font-bold mb-3 text-gray-700 uppercase">Matriz Tachada:</p>
-                    <span className="font-normal normal-case">
-                        {mostrarMatriz(apiRespuesta.matriz_tachada)}
-                    </span>
-                </div>
-                {mostrarMatriz(apiRespuesta.matriz_resultante)?.length ? (
-                    <div className="mt-5">
-                        <p className="font-bold mb-3 text-gray-700 uppercase">Matriz Resultante:</p>
-                        <span className="font-normal normal-case">
-                            {mostrarMatriz(apiRespuesta.matriz_resultante)}
-                        </span>
-                    </div>
-                ) : null}
-            </div>
         </>
     )
 }
 
-export default ListadoMatriz
+export default TablaCosto
