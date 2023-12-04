@@ -32,8 +32,6 @@ export function ModalFilasColumnas({ onEnviarDatos }) {
         }
         setFilas(0)
         setColumnas(0)
-        console.log(error)
-        console.log(activar)
     }
     return (
         <Dialog>
