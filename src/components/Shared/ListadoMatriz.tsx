@@ -10,7 +10,7 @@ const ListadoMatriz = ({ matrizCopia, apiRespuesta, nombreFilas, nombreColumnas 
                         <tr>
                             <th className="border-b border-gray-300 px-4 py-2">F/C</th>
                             {matriz[0].map((elemento, indiceElemento) => (
-                                <th key={indiceElemento} className="border border-gray-300 px-4 py-2">
+                                <th key={indiceElemento} className="border-b border-gray-300 px-2 py-1 text-xs md:text-sm lg:text-base xl:text-lg 1xl:text-xl whitespace-nowrap">
                                     <>
                                         {nombreColumnas === "" ? (
                                             <div>C {indiceElemento + 1}</div>
@@ -25,7 +25,7 @@ const ListadoMatriz = ({ matrizCopia, apiRespuesta, nombreFilas, nombreColumnas 
                     <tbody>
                         {matriz.map((fila, indiceFila) => (
                             <tr key={indiceFila}>
-                                <td className="border border-gray-300 px-4 py-2">
+                                <td className="border-b border-gray-300 px-2 py-1 text-xs md:text-sm lg:text-base xl:text-lg 1xl:text-xl whitespace-nowrap">
                                     <>
                                         {nombreFilas === "" ? (
                                             <div>F {indiceFila + 1}</div>
@@ -71,14 +71,22 @@ const ListadoMatriz = ({ matrizCopia, apiRespuesta, nombreFilas, nombreColumnas 
                         {mostrarMatriz(apiRespuesta.matriz_tachada)}
                     </span>
                 </div>
-                {mostrarMatriz(apiRespuesta.matriz_resultante)?.length ? (
-                    <div className="mt-5">
-                        <p className="font-bold mb-3 text-gray-700 uppercase">Matriz Resultante:</p>
-                        <span className="font-normal normal-case">
-                            {mostrarMatriz(apiRespuesta.matriz_resultante)}
-                        </span>
-                    </div>
-                ) : null}
+                <div className="mt-5">
+                    {apiRespuesta.matriz_resultante && apiRespuesta.matriz_resultante.length > 0 ? (
+                        <>
+                            <p className="font-bold mb-3 text-gray-700 uppercase">Matriz Resultante:</p>
+                            <span className="font-normal normal-case">
+                                {mostrarMatriz(apiRespuesta.matriz_resultante)}
+                            </span>
+                        </>
+                    ): (
+                        <>
+                            
+                        </>
+                    )}
+                </div>
+                {/* {mostrarMatriz(apiRespuesta.matriz_resultante)? ? (
+                ) : null} */}
             </div>
         </>
     )

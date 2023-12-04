@@ -35,6 +35,8 @@ export function ModalFilasColumnas({ onEnviarDatos }) {
         }
         setFilas(0)
         setColumnas(0)
+        setNombreFila('')
+        setNombreColumna('')
     }
     return (
         <Dialog>

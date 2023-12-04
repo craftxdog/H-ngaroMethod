@@ -4,13 +4,13 @@ const TablaCosto = ({ apiRespuesta, nombreFilas, nombreColumnas }) => {
             return;
         }
         return (
-            <div className="md:w-1/2 lg:w-3/5 md:h-screen">
+            <div>
                 <table className="border-collapse table-fixed w-full text-center bg-gray-50">
                     <thead>
                         <tr>
                             <th className="border-b border-gray-300 px-4 py-2">F/C</th>
                             {matriz[0].map((elemento, indiceElemento) => (
-                                <th key={indiceElemento} className="border border-gray-300 px-4 py-2">
+                                <th key={indiceElemento} className="border-b border-gray-300 px-2 py-1 text-xs md:text-sm lg:text-base xl:text-lg 1xl:text-xl whitespace-nowrap">
                                     <>
                                         {nombreColumnas === "" ? (
                                             <div>C {indiceElemento + 1}</div>
@@ -25,7 +25,7 @@ const TablaCosto = ({ apiRespuesta, nombreFilas, nombreColumnas }) => {
                     <tbody>
                         {matriz.map((fila, indiceFila) => (
                             <tr key={indiceFila}>
-                                <td className="border border-gray-300 px-4 py-2">
+                                <td className="border-b border-gray-300 px-2 py-1 text-xs md:text-sm lg:text-base xl:text-lg 1xl:text-xl whitespace-nowrap">
                                     <>
                                         {nombreFilas === "" ? (
                                             <div>F {indiceFila + 1}</div>
@@ -48,15 +48,16 @@ const TablaCosto = ({ apiRespuesta, nombreFilas, nombreColumnas }) => {
     };
     return (
         <>
-            <div>
-                <p className="font-bold mb-3 text-gray-700 uppercase">Costo Total Mínimo:</p>
-                {apiRespuesta.costo}
-            </div>
             <div className="mt-5">
                 <p className="font-bold mb-3 text-gray-700 uppercase">Resultado Final</p>
                 <span className="font-normal normal-case">
                     {mostrarMatriz(apiRespuesta.resultado_final)}
                 </span>
+                <div>
+                    <p className="font-bold mb-3 text-gray-700 uppercase">Costo Total Mínimo:
+                        <span className="font-normal normal-case"> {apiRespuesta.costo} </span>
+                    </p>
+                </div>
             </div>
         </>
     )

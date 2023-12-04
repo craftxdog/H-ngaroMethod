@@ -100,7 +100,6 @@ function App() {
                   <p className="text-lg mt-5 text-center mb-10">
                     Costo {""} <span className="text-indigo-600 font-bold"> Total </span>
                   </p>
-                  
                   <div className="mx-5 my-7 bg-white shadow-md px-5 py-10 rounded-xl">
                     {datosApi && (<TablaCosto apiRespuesta={datosApi}
                       nombreFilas={datosFilasColumnas.nombreFila}
