@@ -40,10 +40,10 @@ const FormularioPrincipal = ({ filas, columnas, onGuardarDatos }) => {
                                 <td key={`celda-${indexFila}-${indexColumna}`}>
                                     <input
                                         type="number"
-                                        min={0}
+                                        min={-50}
                                         value={valor}
                                         onChange={(e) => handleInputChange(indexFila, indexColumna, e.target.value)}
-                                        className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+                                        className="border-2 w-full p-2 mt-2 placeholder-gray-400 border-indigo-500 rounded-md"
                                     />
                                 </td>
                             ))}

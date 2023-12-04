@@ -41,14 +41,14 @@ export function ModalFilasColumnas({ onEnviarDatos }) {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button variant="outline">Filas y Columnas</Button>
+                <Button variant="outline" className="bg-indigo-600 text-white">Filas y Columnas</Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-md">
                 <DialogHeader>
                     <DialogTitle>Ingrese Valores Para Filas Y Columnas</DialogTitle>
                     {error && <Error>Todos Los Campos Son Obligatorios</Error>}
                     <DialogDescription>
-                        Valores Enteros Positivos
+                        Para aplicar el método Húngaro el número de filas y el de columnas debe ser igual
                     </DialogDescription>
                 </DialogHeader>
                 <div className="flex items-center space-x-2">
@@ -79,7 +79,7 @@ export function ModalFilasColumnas({ onEnviarDatos }) {
 
                 </div>
                 <div className="flex items-center space-x-2">
-                <div className="grid flex-1 gap-2">
+                    <div className="grid flex-1 gap-2">
                         <Label htmlFor="nombreColumnas" className="block text-gray-600 uppercase font-bold">
                             Nombre Para las Columnas
                         </Label>

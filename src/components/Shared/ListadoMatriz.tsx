@@ -35,7 +35,8 @@ const ListadoMatriz = ({ matrizCopia, apiRespuesta, nombreFilas, nombreColumnas 
                                     </>
                                 </td>
                                 {fila.map((elemento, indiceElemento) => (
-                                    <td key={indiceElemento} className="border border-gray-300 px-4 py-2">
+                                    <td key={indiceElemento}
+                                        className="border border-gray-300 px-4 py-2">
                                         {elemento}
                                     </td>
                                 ))}
@@ -79,9 +80,9 @@ const ListadoMatriz = ({ matrizCopia, apiRespuesta, nombreFilas, nombreColumnas 
                                 {mostrarMatriz(apiRespuesta.matriz_resultante)}
                             </span>
                         </>
-                    ): (
+                    ) : (
                         <>
-                            
+
                         </>
                     )}
                 </div>
