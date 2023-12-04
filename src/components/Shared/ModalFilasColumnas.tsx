@@ -71,7 +71,7 @@ export function ModalFilasColumnas({ onEnviarDatos }) {
                             id="numeroFilas"
                             type="number"
                             min={2}
-                            max={20}
+                            max={100}
                             value={filas}
                             onChange={(e) => setFilas(Number(e.target.value))}
                         />
