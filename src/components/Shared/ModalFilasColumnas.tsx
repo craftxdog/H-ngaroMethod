@@ -52,7 +52,7 @@ export function ModalFilasColumnas({ onEnviarDatos }) {
                 <div className="flex items-center space-x-2">
                     <div className="grid flex-1 gap-2">
                         <Label htmlFor="nombreFila" className="block text-gray-600 uppercase font-bold">
-                            Nombre Para Fila
+                            Nombre Para las Filas
                         </Label>
                         <Input
                             id="nombreFila"
@@ -63,7 +63,7 @@ export function ModalFilasColumnas({ onEnviarDatos }) {
                     </div>
                     <div className="grid flex-1 gap-2">
                         <Label htmlFor="numeroFilas" className="block text-gray-600 uppercase font-bold">
-                            Numero de Filas
+                            Cantidad de Filas
                         </Label>
                         <Input
                             id="numeroFilas"
@@ -79,7 +79,7 @@ export function ModalFilasColumnas({ onEnviarDatos }) {
                 <div className="flex items-center space-x-2">
                 <div className="grid flex-1 gap-2">
                         <Label htmlFor="nombreColumnas" className="block text-gray-600 uppercase font-bold">
-                            Nombre Para Columnas
+                            Nombre Para las Columnas
                         </Label>
                         <Input
                             id="nombreColumnas"
@@ -90,7 +90,7 @@ export function ModalFilasColumnas({ onEnviarDatos }) {
                     </div>
                     <div className="grid flex-1 gap-2">
                         <Label htmlFor="numeroColumnas" className="block text-gray-600 uppercase font-bold">
-                            Datos Para COLUMNAS
+                            Cantidad de COLUMNAS
                         </Label>
                         <Input
                             id="numeroColumnas"
