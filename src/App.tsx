@@ -7,6 +7,7 @@ import TablaCosto from "./components/Shared/TablaCosto";
 
 function App() {
   const [configuracion, setConfiguracion] = useState({ filas: 0, columnas: 0 });
+  const [datosFilasColumnas, setDatosFilasColumnas] = useState({ nombreFila: "", nombreColumna: "" })
   const [datosMatriz, setDatosMatriz] = useState([]);
   const [datosApi, setDatosApi] = useState(null);
   const [copiarMatriz, setCopiarMatriz] = useState([]);
@@ -28,8 +29,9 @@ function App() {
     }
   };
 
-  const handleEnviarDatos = ({ filas, columnas }) => {
+  const handleEnviarDatos = ({ filas, columnas, nombreFila, nombreColumna }) => {
     setConfiguracion({ filas, columnas });
+    setDatosFilasColumnas({ nombreFila, nombreColumna });
   };
 
   const enviarDatosALaAPI = async (filas, columnas, matriz) => {
@@ -99,7 +101,10 @@ function App() {
                     Costo {""} <span className="text-indigo-600 font-bold"> Total </span>
                   </p>
                   <div className="mx-5 my-7 bg-white shadow-md px-5 py-10 rounded-xl">
-                    {datosApi && (<TablaCosto apiRespuesta={datosApi} />)}
+                    {datosApi && (<TablaCosto apiRespuesta={datosApi}
+                      nombreFilas={datosFilasColumnas.nombreFila}
+                      nombreColumnas={datosFilasColumnas.nombreColumna}
+                    />)}
                   </div>
                 </>
               )}
@@ -112,7 +117,10 @@ function App() {
             Administra los {''}
             <span className="text-indigo-700 font-bold">Datos y Resultados</span>
           </p>
-          {datosApi && (<ListadoMatriz matrizCopia={copiarMatriz} apiRespuesta={datosApi} />)}
+          {datosApi && (<ListadoMatriz matrizCopia={copiarMatriz} apiRespuesta={datosApi}
+            nombreFilas={datosFilasColumnas.nombreFila}
+            nombreColumnas={datosFilasColumnas.nombreColumna}
+          />)}
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-const ListadoMatriz = ({ matrizCopia, apiRespuesta }) => {
+const ListadoMatriz = ({ matrizCopia, apiRespuesta, nombreFilas, nombreColumnas }) => {
     const mostrarMatriz = (matriz) => {
         if (!matriz || !Array.isArray(matriz) || matriz.length === 0 || !Array.isArray(matriz[0])) {
             return;
@@ -11,7 +11,13 @@ const ListadoMatriz = ({ matrizCopia, apiRespuesta }) => {
                             <th className="border-b border-gray-300 px-4 py-2">F/C</th>
                             {matriz[0].map((elemento, indiceElemento) => (
                                 <th key={indiceElemento} className="border border-gray-300 px-4 py-2">
-                                    C{indiceElemento + 1}
+                                    <>
+                                        {nombreColumnas === "" ? (
+                                            <div>C {indiceElemento + 1}</div>
+                                        ) : (
+                                            <div>{nombreColumnas}{indiceElemento + 1}</div>
+                                        )}
+                                    </>
                                 </th>
                             ))}
                         </tr>
@@ -20,7 +26,13 @@ const ListadoMatriz = ({ matrizCopia, apiRespuesta }) => {
                         {matriz.map((fila, indiceFila) => (
                             <tr key={indiceFila}>
                                 <td className="border border-gray-300 px-4 py-2">
-                                    F{indiceFila + 1}
+                                    <>
+                                        {nombreFilas === "" ? (
+                                            <div>F {indiceFila + 1}</div>
+                                        ) : (
+                                            <div>{nombreFilas}{indiceFila + 1}</div>
+                                        )}
+                                    </>
                                 </td>
                                 {fila.map((elemento, indiceElemento) => (
                                     <td key={indiceElemento} className="border border-gray-300 px-4 py-2">

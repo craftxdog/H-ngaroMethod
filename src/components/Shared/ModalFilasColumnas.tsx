@@ -18,13 +18,16 @@ import Loader from "./Loader"
 export function ModalFilasColumnas({ onEnviarDatos }) {
     const [filas, setFilas] = useState(0)
     const [columnas, setColumnas] = useState(0)
+    const [nombreFila, setNombreFila] = useState('')
+    const [nombreColumna, setNombreColumna] = useState('')
+
     const [error, setError] = useState(false)
     const [activar, setActivar] = useState(true)
 
     const handleSubmit = () => {
         if (Number.isInteger(filas) && filas > 0 && Number.isInteger(columnas) && columnas > 0) {
             setActivar(true)
-            onEnviarDatos({ filas, columnas })
+            onEnviarDatos({ filas, columnas, nombreFila, nombreColumna })
         } else {
             setError(true)
             setActivar(false)
@@ -48,8 +51,19 @@ export function ModalFilasColumnas({ onEnviarDatos }) {
                 </DialogHeader>
                 <div className="flex items-center space-x-2">
                     <div className="grid flex-1 gap-2">
+                        <Label htmlFor="nombreFila" className="block text-gray-600 uppercase font-bold">
+                            Nombre Para Fila
+                        </Label>
+                        <Input
+                            id="nombreFila"
+                            type="text"
+                            value={nombreFila}
+                            onChange={(e) => setNombreFila(String(e.target.value))}
+                        />
+                    </div>
+                    <div className="grid flex-1 gap-2">
                         <Label htmlFor="numeroFilas" className="block text-gray-600 uppercase font-bold">
-                            Datos Para Fila
+                            Numero de Filas
                         </Label>
                         <Input
                             id="numeroFilas"
@@ -63,6 +77,17 @@ export function ModalFilasColumnas({ onEnviarDatos }) {
 
                 </div>
                 <div className="flex items-center space-x-2">
+                <div className="grid flex-1 gap-2">
+                        <Label htmlFor="nombreColumnas" className="block text-gray-600 uppercase font-bold">
+                            Nombre Para Columnas
+                        </Label>
+                        <Input
+                            id="nombreColumnas"
+                            type="text"
+                            value={nombreColumna}
+                            onChange={(e) => setNombreColumna(String(e.target.value))}
+                        />
+                    </div>
                     <div className="grid flex-1 gap-2">
                         <Label htmlFor="numeroColumnas" className="block text-gray-600 uppercase font-bold">
                             Datos Para COLUMNAS
