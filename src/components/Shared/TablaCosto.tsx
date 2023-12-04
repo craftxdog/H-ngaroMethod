@@ -4,7 +4,7 @@ const TablaCosto = ({ apiRespuesta, nombreFilas, nombreColumnas }) => {
             return;
         }
         return (
-            <div>
+            <div className="md:w-1/2 lg:w-3/5 md:h-screen">
                 <table className="border-collapse table-fixed w-full text-center bg-gray-50">
                     <thead>
                         <tr>
@@ -15,7 +15,7 @@ const TablaCosto = ({ apiRespuesta, nombreFilas, nombreColumnas }) => {
                                         {nombreColumnas === "" ? (
                                             <div>C {indiceElemento + 1}</div>
                                         ) : (
-                                            <div>{nombreColumnas}{indiceElemento + 1}</div>
+                                            <div>{nombreColumnas} {indiceElemento + 1}</div>
                                         )}
                                     </>
                                 </th>
@@ -30,7 +30,7 @@ const TablaCosto = ({ apiRespuesta, nombreFilas, nombreColumnas }) => {
                                         {nombreFilas === "" ? (
                                             <div>F {indiceFila + 1}</div>
                                         ) : (
-                                            <div>{nombreFilas}{indiceFila + 1}</div>
+                                            <div>{nombreFilas} {indiceFila + 1}</div>
                                         )}
                                     </>
                                 </td>

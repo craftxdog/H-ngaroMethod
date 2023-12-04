@@ -89,7 +89,7 @@ function App() {
             <>
               {datosApi === null ? (
                 <>
-                  <h2 className="font-black text-3xl text-center">Asegurese de Llenar las filas Y columnas</h2>
+                  <h2 className="font-black text-3xl text-center">Asegúrese de Llenar las filas Y columnas</h2>
                   <p className="text-lg mt-5 text-center mb-10">
                     Registra los Datos y {""} <span className="text-indigo-600 font-bold"> Administralos </span>
                   </p>
@@ -100,6 +100,7 @@ function App() {
                   <p className="text-lg mt-5 text-center mb-10">
                     Costo {""} <span className="text-indigo-600 font-bold"> Total </span>
                   </p>
+                  
                   <div className="mx-5 my-7 bg-white shadow-md px-5 py-10 rounded-xl">
                     {datosApi && (<TablaCosto apiRespuesta={datosApi}
                       nombreFilas={datosFilasColumnas.nombreFila}

@@ -15,7 +15,7 @@ const ListadoMatriz = ({ matrizCopia, apiRespuesta, nombreFilas, nombreColumnas 
                                         {nombreColumnas === "" ? (
                                             <div>C {indiceElemento + 1}</div>
                                         ) : (
-                                            <div>{nombreColumnas}{indiceElemento + 1}</div>
+                                            <div>{nombreColumnas} {indiceElemento + 1}</div>
                                         )}
                                     </>
                                 </th>
@@ -30,7 +30,7 @@ const ListadoMatriz = ({ matrizCopia, apiRespuesta, nombreFilas, nombreColumnas 
                                         {nombreFilas === "" ? (
                                             <div>F {indiceFila + 1}</div>
                                         ) : (
-                                            <div>{nombreFilas}{indiceFila + 1}</div>
+                                            <div>{nombreFilas} {indiceFila + 1}</div>
                                         )}
                                     </>
                                 </td>
